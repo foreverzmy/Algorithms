@@ -58,6 +58,9 @@
 
 实现见代码 [bubble_sort.py](./bubble_sort.py)
 
+### 动图演示
+
+![](./images/bubble_sort.gif)
 ### 算法分析
 
 * 最佳情况：T(n)=O(n<sup>2</sup>) 或 T(n)=O(n)
