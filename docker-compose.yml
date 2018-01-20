@@ -1,0 +1,14 @@
+version: '3.4'
+services:
+  Algorithms:
+    image: python:alpine
+    container_name: Algorithms
+    volumes:
+      - type: bind
+        source: ./
+        target: /workspace
+    working_dir: /workspace
+    restart: always
+    entrypoint: sh
+    stdin_open: true
+    tty: true
