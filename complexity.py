@@ -10,7 +10,7 @@ plt.rcParams['font.sans-serif'] = ['SimHei']  # 用来正常显示中文标签
 plt.rcParams['axes.unicode_minus'] = False  # 用来正常显示负号
 # 有中文出现的情况，需要u'内容'
 
-X = np.arange(1, 10)
+X = range(1, 10)
 
 
 def draw_1():
