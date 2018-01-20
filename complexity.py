@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+"""
+时间复杂度对比图
+"""
 import math
 import numpy as np
 import matplotlib.pyplot as plt
@@ -11,31 +14,49 @@ X = np.arange(1, 10)
 
 
 def draw_1():
+    """
+    常数阶 O(1)
+    """
     Y = [1 for x in X]
     plt.plot(X, Y, label='O(1)')
 
 
 def draw_logn():
+    """
+    对数阶 O(log n)
+    """
     Y = [np.log2(n) for n in X]
     plt.plot(X, Y, label='O(log n)')
 
 
 def draw_n():
+    """
+    线性阶 O(n)
+    """
     Y = X
     plt.plot(X, Y, label='O(n)')
 
 
 def draw_nlogn():
+    """
+    线性对数阶 O(n log n)
+    """
     Y = [n * np.log2(n) for n in X]
     plt.plot(X, Y, label='O(n log n)')
 
 
 def draw_n2():
+    """
+    平方阶 O(n^2)
+    """
     Y = [math.pow(n, 2) for n in X]
     plt.plot(X, Y, label='O(n^2)')
 
 
 def draw_2n():
+    """
+    指数阶 O(2^n)
+    """
     Y = [math.pow(2, n) for n in X]
     plt.plot(X, Y, label='O(2^n)')
 
