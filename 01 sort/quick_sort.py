@@ -8,10 +8,10 @@ def partition(arr, left, right):
     """
     分区
     """
-    pivot = left
+    pivot = left  # 设定基准值
     index = pivot + 1
 
-    for i in range(index, right):
+    for i in range(index, right + 1):
         if arr[i] < arr[pivot]:
             arr[i], arr[index] = arr[index], arr[i]
             index += 1
@@ -26,7 +26,7 @@ def quick_sort(arr, left=0, right=0):
     left = 0 if type(left) != int else left
     right = length - 1 if type(right) != int else right
 
-    if left > right:
+    if left < right:
         partition_index = partition(arr, left, right)
         quick_sort(arr, left, partition_index - 1)
         quick_sort(arr, partition_index + 1, right)
