@@ -17,7 +17,6 @@ def bucket_sort(arr, bucket_size=10):
     3. 对每个不是空的桶进行排序；
     4. 从不是空的桶里把排好序的数据拼接起来。
     """
-    pass
     if len(arr) == 0:
         return arr
 
