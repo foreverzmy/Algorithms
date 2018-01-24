@@ -13,36 +13,30 @@ def radix_sort(arr):
     算法说明
     -------
     1. 取得数组中的最大数，并取得位数；
-    2. arr为原始数组，从最低位开始取每个位组成radix数组；
-    3. 对radix进行计数排序（利用计数排序适用于小范围数的特点）；
+    2. 遍历数组，从最低位开始取每个位组成 radix 数组；
+    3. 将 radix 展开为一维数组；
+    4. 重复2，3步，直至最高位也遍历完成，radix 展开的一维数组即为有序数组。
     """
     length = len(arr)
     if length == 0:
         return arr
 
-    mod = 10
-    dev = 1
+    level = 1  # 初始化位数为1
+    max_value = max(arr)  # 取得数组中最大值
+    # 取得位数
+    while max_value // 10**level > 0:
+        level += 1
 
-    buckets = [[] for i in range(10)]
+    for l in range(1, level + 1):
+        buckets = [[] for i in range(10)]
 
-    # 按照个位数分桶
-    for i in range(length):
-        single = arr[i] % 10
-        buckets[single].append(arr[i])
-
-    arr = []
-    for i in range(len(buckets)):
-        arr += buckets[i]
-
-    buckets = [[] for i in range(10)]
-    # 按照十位数分桶
-    for i in range(length):
-        tens = arr[i] // 10
-        buckets[tens].append(arr[i])
-
-    arr = []
-    for i in range(len(buckets)):
-        arr += buckets[i]
+        # 按照位数分桶
+        for j in range(length):
+            digit = arr[j] % (10**l) // (10**(l - 1))
+            buckets[digit].append(arr[j])
+        arr = []
+        for i in range(len(buckets)):
+            arr += buckets[i]
 
     return arr
 
